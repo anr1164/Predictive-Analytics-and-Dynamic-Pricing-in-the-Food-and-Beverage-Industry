@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='revenue.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Revenue Forecast</h1>
+    </header>
+    <nav>
+        <a href="/home">Dashboard</a>
+        <a href="/forecast">Forecast Demand</a>
+        <a href="/dynamic_pricing">Dynamic Pricing</a>
+        <a href="/patterns">Purchasing Patterns</a>
+        <a href="/sales_ratio">Sales Ratio</a>
+        <a href="/revenue">Forecast Revenue</a>
+        <a href="/most_demanded">Most Demanded Items</a>
+        <a href="/visualizations">Visualizations</a>
+        <a href="/">Logout</a>
+    </nav>
+    <main>
+        <div class="container">
+            <p id="revenue-text">Forecasted Revenue for Next Week: Rs.{{ revenue_forecast }}</p>
+        </div>
+    </main>
+
+    <script>
+        // Function to animate text letter by letter
+        function animateText(elementId, text) {
+            const element = document.getElementById(elementId);
+            element.innerHTML = ''; // Clear existing content
+
+            [...text].forEach((letter, index) => {
+                const span = document.createElement('span');
+                span.textContent = letter;
+                span.style.opacity = 0; // Initially hidden
+                span.style.transition = 'opacity 0.1s ease'; // Animation transition
+
+                element.appendChild(span);
+
+                // Animate each letter with delay
+                setTimeout(() => {
+                    span.style.opacity = 1; // Show each letter
+                }, index * 100); // Delay for each letter (adjust as needed)
+            });
+        }
+
+        // Call the animateText function with the revenue text
+        animateText('revenue-text', 'Forecasted Revenue for Next Week: ₹{{ revenue_forecast }}');
+    </script>
+</body>
+</html>

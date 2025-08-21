@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sales_ratio.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Sales Ratio</h1>
+    </header>
+    <nav>
+        <a href="/home">Dashboard</a>
+        <a href="/forecast">Forecast Demand</a>
+        <a href="/dynamic_pricing">Dynamic Pricing</a>
+        <a href="/patterns">Purchasing Patterns</a>
+        <a href="/sales_ratio">Sales Ratio</a>
+        <a href="/revenue">Forecast Revenue</a>
+        <a href="/most_demanded">Most Demanded Items</a>
+        <a href="/visualizations">Visualizations</a>
+        <a href="/">Logout</a>
+    </nav>
+    <main>
+        <div class="container animated-container">
+            <div class="sales-ratio">
+                <div class="ratio-item veg">
+                    <p class="ratio-text" id="veg-ratio"></p>
+                    <p class="result-text" id="veg-result"></p>
+                </div>
+                <div class="ratio-item non-veg">
+                    <p class="ratio-text" id="non-veg-ratio"></p>
+                    <p class="result-text" id="non-veg-result"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Function to display the text letter by letter
+        function animateText(elementId, text, resultId, resultText) {
+            const container = document.getElementById(elementId);
+            container.innerHTML = ''; // Clear existing content
+
+            // Split the text into letters
+            [...text].forEach((letter, index) => {
+                const span = document.createElement('span');
+                span.textContent = letter;
+                span.style.opacity = 0; // Initially hidden
+                container.appendChild(span);
+
+                // Animate the letter
+                setTimeout(() => {
+                    span.style.opacity = 1; // Show the letter
+                    span.style.transition = 'opacity 0.3s ease'; // Add transition
+                }, index * 300); // Delay for each letter
+            });
+
+            // Show the result text below
+            setTimeout(() => {
+                const resultContainer = document.getElementById(resultId);
+                resultContainer.textContent = resultText; // Set the result text
+                resultContainer.style.opacity = 0; // Initially hidden
+                resultContainer.style.transition = 'opacity 0.5s ease'; // Add transition
+                resultContainer.style.opacity = 1; // Fade in the result text
+            }, text.length * 300 + 500); // Delay to show result after animation
+        }
+
+        // Call the function with the ratios
+        animateText('veg-ratio', `Veg: `, 'veg-result', ` ${Math.round({{ veg_ratio * 100 }})}%`);
+        animateText('non-veg-ratio', `Non-Veg: `, 'non-veg-result', ` ${Math.round({{ non_veg_ratio * 100 }})}%`);
+    </script>
+</body>
+</html>

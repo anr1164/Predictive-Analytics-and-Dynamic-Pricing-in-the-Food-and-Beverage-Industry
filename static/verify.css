@@ -1,0 +1,155 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('images/3.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Overlay for better text visibility */
+/* Apply a dark overlay to the background for readability */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/* Container for heading and form */
+.container {
+    background: rgba(255, 255, 255, 0.1); /* Light background for contrast */
+    border-radius: 15px; /* Rounded corners */
+    padding: 40px; /* Internal padding */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+    width: 90%;
+    max-width: 400px; /* Limits the width */
+    text-align: center; /* Centers text */
+    animation: fadeIn 0.5s ease; /* Fade-in effect for the container */
+    margin-top: 60px;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Headings */
+header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    margin-top: 30px;
+}
+
+header h1 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    margin: 0 0 20px; /* Spacing below the subheading */
+    font-size: 1.5em; /* Subheading size */
+    color: #ffffff; /* Blue color for subheading */
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column; /* Aligns form fields vertically */
+}
+
+/* Labels */
+label {
+    margin: 10px 0 5px; /* Margin for labels */
+    font-weight: bold; /* Bold labels */
+    color: #ffffff; /* Darker color for labels */
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="password"] {
+    padding: 12px; /* Increased padding */
+    border: 2px solid #3498db; /* Thicker border with blue color */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 15px; /* Space between fields */
+    font-size: 1em; /* Base font size */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+/* Input focus effect */
+input:focus {
+    border-color: #2980b9; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Button styles */
+button {
+    background-color: #3498db; /* Button color */
+    color: #ffffff; /* Button text color */
+    padding: 12px; /* Increased padding */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 1.1em; /* Slightly larger text */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+button:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight upward movement */
+}
+
+/* Alert message styles */
+.alert {
+    color: #e74c3c; /* Alert text color */
+    display: none; /* Hidden by default */
+    text-align: center; /* Centered text */
+    margin-top: 10px; /* Spacing above alert */
+}
+
+/* Link styles */
+a {
+    color: #ffffff; /* Link color */
+    text-decoration: none; /* No underline */
+    font-weight: bold; /* Bold links */
+    margin-top: 10px; /* Spacing above link */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em; /* Responsive heading size */
+    }
+
+    h2 {
+        font-size: 1.4em; /* Responsive subheading size */
+    }
+
+    .container {
+        padding: 20px; /* Adjusted padding for smaller screens */
+    }
+}
