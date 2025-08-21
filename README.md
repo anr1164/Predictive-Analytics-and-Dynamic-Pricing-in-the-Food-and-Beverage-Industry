@@ -63,7 +63,9 @@ Deploy on cloud (AWS/Heroku) for production use
 Mobile-friendly version of the dashboard
 
 🙌 Author
-👤 Achyuthnath Reddy Meka
+👤 Achyuthnath Reddy Meka - Machine Learning, Flask Backend
+👤 Machineni Devatha Jayanth - Data Preprocessing, EDA
+👤 Pandaga Koushik - FrontEnd(HTML/CSS), Visualizations
 🎓 B.Tech Graduate in Computer Science & Engineering (Data Science) – Anurag University
 
 📧 Email: chotumeka116@gmail.com
